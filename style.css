@@ -12,24 +12,24 @@ body{
     padding: 0;
     font-family: 'Roboto', sans-serif;
     color: var(--font-primary);
+    height: 100vh;
 }
 
 .app{
     display: flex;
     align-content: center;
     justify-content: center;
+    height: 100vh;
 }
 
 .modal{
-    box-sizing: border-box;
-    width: 80%;
-    /* height: 80vh; */
+    /* box-sizing: border-box; */
+    width: 35rem;
     background: var(--font-primary);
     margin: auto;
-    padding: 8% 5% 8% 5%;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    border-radius: 10px;
+    padding: 6% 3%;
+    border-radius: 15px;
+    box-shadow: 12px 12px 20px 0px rgb(0 0 0 / 36%);
 }
 
 .head{
@@ -67,7 +67,7 @@ h2{
 }
 
 .theme, .players, .grid{
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .start{
@@ -104,4 +104,13 @@ a{
 
 .start button:hover{
     background: #ff6600;
+}
+
+@media screen and (max-width: 768px){
+    .modal{
+        box-sizing: border-box;
+        padding: 4% 6%;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
