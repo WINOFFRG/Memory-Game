@@ -32,7 +32,7 @@ body{
     align-content: center;
     width: 95%;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .menu-item h2{
@@ -97,27 +97,27 @@ body{
     height: 100%;
     border-radius: 50%;
     background: var(--background-blue);
-    text-align: center;
     color: var(--font-primary);
+    text-align: center;
 }
 
 .grid{
     display: grid;
-    width: fit-content;
     margin: 0% auto;
     padding: 20px;
-    grid-template-columns: repeat(4, 50px);
-    grid-template-rows: repeat(4, 50px);
-    grid-template-columns: repeat(6, 50px);
-    grid-template-rows: repeat(6, 50px);
-    align-items: center;
     gap: 5px;
-    justify-items: center;
-    align-content: center;
     box-shadow: grey 11px 11px 25px 2px;
     border-radius: 10px;
     background: #faf8f8ee;
+    font-weight: 700;
 }
+
+/* span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+} */
 
 .footer{
     grid-area: footer;
@@ -126,7 +126,7 @@ body{
 .players{
     display: flex;
     justify-content: space-evenly;
-    margin: 0 20px 40px 20px;
+    margin: 15px 20px 20px 20px;
 }
 
 .player{

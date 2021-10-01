@@ -5,40 +5,35 @@ document.querySelector('.backdrop').addEventListener('click', () => {
 });
 
 function createGameBoard(width) {
-    
-    if(width === 4)
-    {
-        document.querySelector('.grid').style.gridTemplateColumns = `repeat(4, 80px)`;
-        document.querySelector('.grid').style.gridTemplateRows = `repeat(4, 80px)`;
-    }
-    if(width === 6)
-    {
-        document.querySelector('.grid').style.gridTemplateColumns = `repeat(6, 60px)`;
-        document.querySelector('.grid').style.gridTemplateRows = `repeat(6, 60px)`;
-    }
 
     const grid = document.querySelector('.grid');
     
-
+    if(width === 4)
+    {
+        grid.style.gridTemplateColumns = `repeat(4, 5em)`;
+        grid.style.gridTemplateRows = `repeat(4, 5em)`;
+        grid.style.lineHeight = "5em";
+    }
+    if(width === 6)
+    {
+        grid.style.gridTemplateColumns = `repeat(6, 4em)`;
+        grid.style.gridTemplateRows = `repeat(6, 4em)`;
+        grid.style.lineHeight = "4em";
+    }
 
     for(var val = 0; val < width*width; val++)
     {
         const icon = document.createElement('div');
         icon.classList.add('icon');
-        const title = document.createElement('h4');
+        const title = document.createElement('span');
         icon.appendChild(title);
         title.innerText = val;
 
         grid.appendChild(icon);
     }
 
-    if(width === 4) 
-    {
-        document.querySelector('.grid').style.fontSize = `0.9em`;
-    }
-    else
-    {
-        document.querySelector('.grid').style.fontSize = `1.2em`;
-    }
-
+    let font = width === 4 ? "2.5em" : "2em";
+    document.querySelectorAll('.icon').forEach(element => {
+        element.style.fontSize = font;
+    })
 }
