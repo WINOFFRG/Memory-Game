@@ -1,8 +1,8 @@
-document.querySelector('.backdrop').addEventListener('click', () => {
-    document.querySelector('.app').classList.remove('backdrop');
-    document.querySelector('.finish').style.display = "None";
+// document.querySelector('.backdrop').addEventListener('click', () => {
+//     document.querySelector('.app').classList.remove('backdrop');
+//     document.querySelector('.finish').style.display = "None";
 
-});
+// });
 
 function createGameBoard(width) {
 
@@ -36,4 +36,27 @@ function createGameBoard(width) {
     document.querySelectorAll('.icon').forEach(element => {
         element.style.fontSize = font;
     })
+}
+
+function repositionFooter(position){
+
+    const footer = document.querySelector('.footer');
+    const game = document.querySelector('.game');
+    footer.remove();
+
+    if(position === "left")
+    document.querySelector('.game').insertBefore(footer, game.firstChild);
+    else
+    document.querySelector('.app').appendChild(footer);
+}
+
+window.onresize = () => {
+    if (window.innerWidth < 600)
+    {
+        repositionFooter("left");
+    }
+    else
+    {
+        repositionFooter("bottom");
+    }
 }
