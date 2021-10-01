@@ -3,7 +3,6 @@
 //     document.querySelector('.finish').style.display = "None";
 
 // });
-
 function createGameBoard(width) {
 
     const grid = document.querySelector('.grid');
@@ -21,13 +20,16 @@ function createGameBoard(width) {
         grid.style.lineHeight = "4em";
     }
 
+    let length = width === 4 ? 8 : 18;
+    let uniqueKeys = makeBoardKeys(length);
+
     for(var val = 0; val < width*width; val++)
     {
         const icon = document.createElement('div');
         icon.classList.add('icon');
         const title = document.createElement('span');
         icon.appendChild(title);
-        title.innerText = val;
+        title.innerText = uniqueKeys[val];
 
         grid.appendChild(icon);
     }
@@ -60,3 +62,21 @@ window.onresize = () => {
         repositionFooter("bottom");
     }
 }
+
+function makeBoardKeys(width){
+
+    const set = new Set()
+    
+    while(set.size < width) {
+      set.add(Math.floor(Math.random() * 99));
+    }
+
+    let uniqueKeys = Array.from(set);
+    uniqueKeys = uniqueKeys.concat(uniqueKeys);
+
+    uniqueKeys.sort(() => Math.random() - 0.5);
+
+    return uniqueKeys;
+}
+
+createGameBoard(6);
