@@ -1,0 +1,260 @@
+:root{
+    --background-blue: #162938;
+    --font-primary: #ffffff;
+    --font-secondary: #325469;
+    --btn-bg-primary: #8599A2;
+}
+
+body{
+    box-sizing: border-box;
+    background: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--background-blue);
+    max-height: 100vh;
+}
+
+.app{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    height: 100vh;
+}
+
+.menu{
+    display: flex;
+    flex: content;
+    justify-content: space-between;
+    align-content: center;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.menu-item h2{
+    font-weight: 700;
+}
+
+.menu-right{
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+.btn{
+    height: 45px;
+    width: 100%;
+    border: 0;
+    border-radius: 30px;
+    color: var(--font-primary);
+    background: var(--btn-bg-primary);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5% 0 5%;
+}
+
+.btn:not(:last-child){
+    margin-right: 10px;    
+}
+
+.btn:hover{
+    background-color: #456e81;
+}
+
+.restart{
+    color: var(--font-primary);
+    height: 45px;
+    width: 100%;
+    border: 0;
+    border-radius: 30px;
+    background: #FDA215;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.restart:hover{
+    background-color: #ff6600;
+}
+
+.header{
+    grid-area: header;
+}
+
+.game{
+    grid-area: main;
+    display: flex;
+    align-items: center;
+}
+
+.icon{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--background-blue);
+    text-align: center;
+    color: var(--font-primary);
+}
+
+.grid{
+    display: grid;
+    width: fit-content;
+    margin: 0% auto;
+    padding: 20px;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(4, 50px);
+    grid-template-columns: repeat(6, 50px);
+    grid-template-rows: repeat(6, 50px);
+    align-items: center;
+    gap: 5px;
+    justify-items: center;
+    align-content: center;
+    box-shadow: grey 11px 11px 25px 2px;
+    border-radius: 10px;
+    background: #faf8f8ee;
+}
+
+.footer{
+    grid-area: footer;
+}
+
+.players{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 20px 40px 20px;
+}
+
+.player{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 50px;
+    background: #BCCEDA;
+    border-radius: 15px;
+    padding: 20px;
+    color: var(--font-primary);
+    position: relative;
+}
+
+.player:not(:last-child){
+    margin-right: 10px;
+}
+
+.player h4, h2 {
+    margin: 0px;
+    color: #31485A;
+}
+
+.player h4{
+    margin-bottom: 10px;
+    color: #456e81;
+    font-weight: 800;
+}
+
+.player__active{
+    background: #FDA215;
+}
+
+.player__active h2,.player__active h4{
+    color: #ffffff;
+}
+
+.player__active:before {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -13%;
+    left: 45%;
+    background: #FDA215;
+    transform: rotate(45deg);
+    content: '';
+}
+
+.backdrop::after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    content: '';
+}
+
+.finish{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 80vh;
+    height:fit-content;
+    background: #ffffff;
+    border-radius: 15px;
+}
+
+/* FINAL SCREEN */
+
+a {
+    width: 100%;
+    margin-right: 15px;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px 30px 0px;
+}
+
+.end{
+    margin: 50px;
+}
+
+    .end h2:first-child{
+        font-weight: 700;
+        font-size: 36px;
+        text-align: center;    
+    }
+
+    .end h3{
+        text-align: center;
+        color: #BCCEDA;
+    }
+
+.p1{
+    display: flex;
+    background: var(--btn-bg-primary);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 0px 20px 0px 20px;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+}
+
+.winner{
+    background: var(--background-blue);
+}
+
+    .winner h2{
+        color: #ffffff;
+        font-weight: 900;
+    }
+
+    .winner h4{
+        font-weight: 900;
+    }
+
+.final__buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+    .final__buttons .new{
+        color: var(--background-blue)
+    }

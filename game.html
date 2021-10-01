@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game.css">
+    <script src="./game.js" defer></script>
+    <title>Play Game</title>
+</head>
+<body>
+    <div class="app backdrop">
+        <div class="header">
+            <div class="menu">
+                <div class="menu-item">
+                    <h2>💡 Memory Game</h2>
+                </div>
+                <div class="menu-right">
+                    <button class="restart btn">Restart</button>
+                    <button class="new-game btn">New Game</button>
+                </div>
+            </div>
+        </div>
+        <div class="game">
+            <div class="grid">
+               
+            </div>
+        </div>
+        <div class="footer">
+            <div class="players">
+                <div class="player">
+                    <h4>Player 1</h4>
+                    <h2>4</h2>
+                </div>
+                <div class="player player__active">
+                    <h4>Player 2</h4>
+                    <h2>4</h2>
+                </div>
+                <div class="player">
+                    <h4>Player 3</h4>
+                    <h2>4</h2>
+                </div>
+                <div class="player">
+                    <h4>Player 4</h4>
+                    <h2>4</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="finish">
+        <div class="end">
+            <h2 class="end__winner">Player 3 Wins! 🎉</h2>
+            <h3>Game Over! Here are the results 👇</h3>
+            <div class="list">
+                <div class="p1 winner">
+                    <h4>Player 3 (Winner)</h4>
+                    <h2>8 Pairs</h2>
+                </div>
+                <div class="p1">
+                    <h4>Player 3 (Winner)</h4>
+                    <h2>8 Pairs</h2>
+                </div>
+                <div class="p1">
+                    <h4>Player 3 (Winner)</h4>
+                    <h2>8 Pairs</h2>
+                </div>
+                <div class="p1">
+                    <h4>Player 3 (Winner)</h4>
+                    <h2>8 Pairs</h2>
+                </div>
+            </div>
+            <div class="final__buttons">
+                <a href="./index.html">
+                    <button class="restart btn">Restart</button>
+                </a>
+                <button class="new btn">Setup New Game</button>
+            </div>
+        </div>
+    </div>
+</body>

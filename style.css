@@ -1,0 +1,107 @@
+:root{
+    --background-blue: #162938;
+    --font-primary: #ffffff;
+    --font-secondary: #325469;
+    --btn-bg-primary: #8599A2;
+}
+
+body{
+    box-sizing: border-box;
+    background: var(--background-blue);
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--font-primary);
+}
+
+.app{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.modal{
+    box-sizing: border-box;
+    width: 80%;
+    /* height: 80vh; */
+    background: var(--font-primary);
+    margin: auto;
+    padding: 8% 5% 8% 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border-radius: 10px;
+}
+
+.head{
+    display: flex;
+    justify-content: center;
+    color: var(--background-blue);
+    font-size: 2.5em;
+    margin: 0;
+}
+
+h2{
+    font-size: 20px;
+    color: var(--font-secondary);
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn{
+    height: 45px;
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+    color: var(--font-primary);
+    background: var(--btn-bg-primary);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5% 0 5%;
+}
+.btn:not(:last-child){
+    margin-right: 10px;
+}
+
+.theme, .players, .grid{
+    margin-bottom: 30px;
+}
+
+.start{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+a{
+    width: 100%;
+}
+
+.start__btn button{
+    color: var(--font-primary);
+    height: 50px;
+    width: 100%;
+    border: 0;
+    border-radius: 30px;
+    background: #FDA215;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.active {
+    background: var(--background-blue);
+}
+
+.buttons button:hover{
+    background: #264358;
+}
+
+.start button:hover{
+    background: #ff6600;
+}
