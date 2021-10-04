@@ -2,6 +2,7 @@ class App {
 
     static init() {
         this.setActiveButton();
+        sessionStorage.GRID = 4;
     }
 
     static setActiveButton() {
@@ -28,6 +29,7 @@ class App {
 
     static activeButton() {
     }
+
 }
 
 App.init();

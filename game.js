@@ -65,7 +65,7 @@ window.onresize = () => {
 
 function makeBoardKeys(width){
 
-    const set = new Set()
+    const set = new Set()   //Set has unique elements
     
     while(set.size < width) {
       set.add(Math.floor(Math.random() * 99));
@@ -74,7 +74,7 @@ function makeBoardKeys(width){
     let uniqueKeys = Array.from(set);
     uniqueKeys = uniqueKeys.concat(uniqueKeys);
 
-    uniqueKeys.sort(() => Math.random() - 0.5);
+    uniqueKeys.sort(() => Math.random() - 0.5);     //Need to check
 
     return uniqueKeys;
 }
