@@ -38,6 +38,10 @@ function createGameBoard(width) {
     document.querySelectorAll('.icon').forEach(element => {
         element.style.fontSize = font;
     })
+
+    grid.addEventListener('click', (event) => {
+        console.log(event.target.innerText);
+    });
 }
 
 function repositionFooter(position){
