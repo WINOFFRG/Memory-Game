@@ -3,6 +3,21 @@
 //     document.querySelector('.finish').style.display = "None";
 
 // });
+window.ARRAY = [];
+
+
+
+function revealIcon(event) {
+
+    event.stopPropagation();
+    
+    if(event.target === this)
+    {
+        return;
+    }
+    console.log(event.target);
+}
+
 function createGameBoard(width) {
 
     const grid = document.querySelector('.grid');
@@ -22,16 +37,26 @@ function createGameBoard(width) {
 
     let length = width === 4 ? 8 : 18;
     let uniqueKeys = makeBoardKeys(length);
+    let total = width*width;
 
-    for(var val = 0; val < width*width; val++)
+    for(var row = 1; row <= width; row++)
     {
-        const icon = document.createElement('div');
-        icon.classList.add('icon');
-        const title = document.createElement('span');
-        icon.appendChild(title);
-        title.innerText = uniqueKeys[val];
+        const innerArray = [];
+        for(var col = 1; col <= width; col++)
+        {
+            const icon = document.createElement('div');
+            icon.classList.add('icon');
+            const title = document.createElement('span');
+            icon.appendChild(title);
+            const val = uniqueKeys[--total];
+            title.innerText = val;
+            innerArray.push(val);
+            icon.setAttribute('data-x', row-1);
+            icon.setAttribute('data-y', col-1);
+            grid.appendChild(icon);
+        }
 
-        grid.appendChild(icon);
+        ARRAY.push(innerArray);
     }
 
     let font = width === 4 ? "2.5em" : "2em";
@@ -39,18 +64,16 @@ function createGameBoard(width) {
         element.style.fontSize = font;
     })
 
-    function addEvent(event){
+    grid.addEventListener('click', revealIcon, true);
+
+    // document.querySelectorAll('.icon').forEach(element => {
+     
+    //     element.addEventListener('click', (event) => {
+    //         event.stopPropagation();
+    //     })
         
-        if(event.target === this)
-        {
-            return;
-        }
-
-        // console.log(event.target, this);
-        console.log(event.target.innerText);
-    }
-
-    grid.addEventListener('click', addEvent);
+    //     // let x = 
+    // });
 }
 
 function repositionFooter(position){
@@ -102,7 +125,7 @@ function setPlayers(number)
     for(let count = 0; count < number; count++)
     {
         player += `<div class="player">
-            <h4>Player ${number}</h4>
+            <h4>Player ${count+1}</h4>
             <h2>0</h2>
         </div>`;
 
