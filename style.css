@@ -66,6 +66,10 @@ h2{
     margin-right: 10px;
 }
 
+input{
+    visibility: hidden;
+}
+
 .theme, .players, .grid{
     /* margin-bottom: 30px; */
 }

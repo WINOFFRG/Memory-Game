@@ -39,9 +39,18 @@ function createGameBoard(width) {
         element.style.fontSize = font;
     })
 
-    grid.addEventListener('click', (event) => {
+    function addEvent(event){
+        
+        if(event.target === this)
+        {
+            return;
+        }
+
+        // console.log(event.target, this);
         console.log(event.target.innerText);
-    });
+    }
+
+    grid.addEventListener('click', addEvent);
 }
 
 function repositionFooter(position){
@@ -78,9 +87,43 @@ function makeBoardKeys(width){
     let uniqueKeys = Array.from(set);
     uniqueKeys = uniqueKeys.concat(uniqueKeys);
 
-    uniqueKeys.sort(() => Math.random() - 0.5);     //Need to check
+    // I have written a comparator here, Here in cpmpare func is returns any random +ve or -ve number so based upon
+    // the random number it will sort the array in ascending or descending order.
+    uniqueKeys.sort(() => Math.random() - 0.5);     // Shuffle the array
 
     return uniqueKeys;
 }
 
-createGameBoard(6);
+class App{
+
+    static getConfig(){
+        let config = [];
+        window.location.search.split('&').forEach(parameter => {
+            config.push(parameter.split('=')[1]);
+        })
+
+        let theme = config[0];
+        let players = config[1];
+        let grid = config[2];
+
+        // Implemented Router for Page and Errors
+        if((theme != "icons" && theme != "numbers") ||
+           (players != "1" && players != "2" && players != "3" && players != "4") ||
+           (grid != "4" && grid != "6"))
+           {
+               window.location.href = "/404.html";
+               console.log("Couldn't load the desired Cofig!");
+               return;
+           }
+        
+        console.log(theme, players, grid);
+        createGameBoard(parseInt(grid));
+    }
+
+
+    static init(){
+        this.getConfig();
+    }    
+}
+
+App.init();
