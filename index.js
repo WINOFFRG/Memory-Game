@@ -33,8 +33,10 @@ class App {
             let players = document.querySelector('.players .buttons .btn.active');
             let grid = document.querySelector('.grid .buttons .btn.active');
 
-            if(!theme || !players || !grid) return;
-
+            if(!theme || !players || !grid) {
+                alert("Please choose your Settings!");
+                return;
+            }
             theme = theme.innerText.toLowerCase();
             players = players.innerText.toLowerCase();
             grid = grid.innerText[0];

@@ -94,6 +94,31 @@ function makeBoardKeys(width){
     return uniqueKeys;
 }
 
+function setPlayers(number)
+{
+    const playerBar = document.querySelector('.players');
+    let player = "";
+
+    for(let count = 0; count < number; count++)
+    {
+        player += `<div class="player">
+            <h4>Player ${number}</h4>
+            <h2>0</h2>
+        </div>`;
+
+        playerBar.innerHTML = player;
+    }
+}
+
+function confirmExit(){
+    if(confirm("Are you sure to Restart the Game?")){
+        window.location.href = "/index.html?mode=restart"
+        console.log("Starting New Game!");
+    }
+    else{
+        return;
+    }
+}
 class App{
 
     static getConfig(){
@@ -116,8 +141,8 @@ class App{
                return;
            }
         
-        console.log(theme, players, grid);
-        createGameBoard(parseInt(grid));
+        createGameBoard(parseInt(grid), theme);
+        setPlayers(parseInt(players));
     }
 
 
