@@ -83,9 +83,33 @@ function repositionFooter(position){
     footer.remove();
 
     if(position === "left")
-    document.querySelector('.game').insertBefore(footer, game.firstChild);
+    {
+        document.querySelector('.game').insertBefore(footer, game.firstChild);
+        const players = Array.from(footer.firstElementChild.children);
+
+        for(let count = 0; count < players.length; count++)
+        {
+            players[count].innerHTML = `
+                <h4>P${count+1}</h4>
+                <h2>0</h2>
+            `;
+        }
+    }
     else
-    document.querySelector('.app').appendChild(footer);
+    {
+        document.querySelector('.app').appendChild(footer);
+
+        const players = Array.from(footer.firstElementChild.children);
+
+        for(let count = 0; count < players.length; count++)
+        {
+            players[count].innerHTML = `
+                <h4>Player ${count+1}</h4>
+                <h2>0</h2>
+            `;
+        }
+    }
+
 }
 
 window.onresize = () => {
@@ -142,6 +166,30 @@ function confirmExit(){
         return;
     }
 }
+
+function Game() {
+
+    const game = document.querySelector('.grid');
+
+    function startGame(){
+
+        const element = Array.from(game.children);
+        const size = Math.sqrt(element.length);
+        let count = 0;
+
+        for(let row = 0; row < size; row++)
+        {
+            for(let col = 0; col < size; col++)
+            {
+                let idx = count++;
+                element[idx].classList.add('hideIcon');
+                element[idx].childNodes[0].innerText = " ";
+            }
+        }
+    }
+
+    setTimeout(startGame(), 3000);
+}
 class App{
 
     static getConfig(){
@@ -171,6 +219,8 @@ class App{
 
     static init(){
         this.getConfig();
+        
+        // Game();
     }    
 }
 
